@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Diplomado6taEd</string>
+    <string name="txtview_Name">Nombre</string>
+    <string name="txtview_Lastname">Apellidos</string>
+    <string name="txtview_Email">Correo</string>
+    <string name="txtview_Group">Grupo</string>
+    <string name="btn_Send">Enviar</string>
 </resources>

@@ -1,6 +1,11 @@
 package com.example.diplomado6taed;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +24,15 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        Button buttonEnviar = findViewById(R.id.buttonEnviar); // Establece el OnClickListener
+        EditText editTextNombre = findViewById(R.id.editTextNombre);
+        TextView textView20 = findViewById(R.id.textView20);
+        buttonEnviar.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                textView20.setText(editTextNombre.getText());
+                Toast.makeText(MainActivity.this,"¡Nombre Actualizado!", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }
