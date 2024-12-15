@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="8dp"
-                android:text="Nombre"
+                android:text="@string/txtview_Name"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="8dp"
-                android:text="Apellidos"
+                android:text="@string/txtview_Lastname"
                 android:textSize="16sp" />
 
             <TextView
@@ -47,17 +47,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="8dp"
-                android:text="Correo"
+                android:text="@string/txtview_Email"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textViewGrupo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Grupo"
+                android:text="@string/txtview_Group"
                 android:textSize="16sp" />
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="44dp"
+        android:text="@string/btn_Return"
+        android:onClick="regresar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,15 +23,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        /*
         setContentView(R.layout.activity_main);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        */
+
+
+        // Declarar objeto viewBinding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        View viewElements = binding.getRoot();
-        setContentView(viewElements);
+        View view = binding.getRoot();
+        setContentView(view);
     }
 
     // Enviar los datos a la siguiente actividad - MANERA TRADICIONAL
@@ -62,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     public void enviar(View view){
         Intent intent = new Intent(this, Detail_activity.class);
 
+        // Esto no es recomendado ya que puede tener fugas de memoria, lo ideal es asignarle
         intent.putExtra("campoTextoNombre", binding.editTextNombre.getText().toString());
         intent.putExtra("campoTextoApellidos", binding.editTextApellidos.getText().toString());
         intent.putExtra("campoTextoCorreo", binding.editTextCorreo.getText().toString());
