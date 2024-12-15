@@ -14,7 +14,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.diplomado6taed.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +29,13 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View viewElements = binding.getRoot();
+        setContentView(viewElements);
     }
 
-    // Enviar los datos a la siguiente actividad
+    // Enviar los datos a la siguiente actividad - MANERA TRADICIONAL
+    /*
     public void enviar(View view){
         EditText editTextNombre = findViewById(R.id.editTextNombre);
         EditText editTextApellidos = findViewById(R.id.editTextApellidos);
@@ -46,6 +53,19 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("campoTextoApellidos", campoTextoApellidos);
         intent.putExtra("campoTextoCorreo", campoTextoCorreo);
         intent.putExtra("campoTextoGrupo", campoTextoGrupo);
+
+        startActivity(intent);
+    }
+    */
+
+    // Enviar los datos a la siguiente actividad - MANERA viewBinding
+    public void enviar(View view){
+        Intent intent = new Intent(this, Detail_activity.class);
+
+        intent.putExtra("campoTextoNombre", binding.editTextNombre.getText().toString());
+        intent.putExtra("campoTextoApellidos", binding.editTextApellidos.getText().toString());
+        intent.putExtra("campoTextoCorreo", binding.editTextCorreo.getText().toString());
+        intent.putExtra("campoTextoGrupo", binding.editTextGrupo.getText().toString());
 
         startActivity(intent);
     }

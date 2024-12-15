@@ -3,6 +3,7 @@ package com.example.diplomado6taed;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -11,7 +12,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.diplomado6taed.databinding.ActivityDetailBinding;
+import com.example.diplomado6taed.databinding.ActivityMainBinding;
+
 public class Detail_activity extends AppCompatActivity {
+    ActivityDetailBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,12 @@ public class Detail_activity extends AppCompatActivity {
             return insets;
         });
 
+        binding = ActivityDetailBinding.inflate(getLayoutInflater());
+        View viewElements = binding.getRoot();
+        setContentView(viewElements);
+
+        // METODO TRADICIONAL
+        /*
         TextView txtResultado1 = findViewById(R.id.txtViewNombre);
         TextView txtResultado2 = findViewById(R.id.txtViewApellidos);
         TextView txtResultado3 = findViewById(R.id.txtViewCorreo);
@@ -45,6 +56,16 @@ public class Detail_activity extends AppCompatActivity {
             txtResultado2.setText(textoRecibido2);
             txtResultado3.setText(textoRecibido3);
             txtResultado4.setText(textoRecibido4);
+        }
+         */
+
+        // METODO viewBinding
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            binding.txtViewNombre.setText(extras.getString("campoTextoNombre"));
+            binding.txtViewApellidos.setText(extras.getString("campoTextoApellidos"));
+            binding.txtViewCorreo.setText(extras.getString("campoTextoCorreo"));
+            binding.txtViewGrupo.setText(extras.getString("campoTextoGrupo"));
         }
     }
 }
