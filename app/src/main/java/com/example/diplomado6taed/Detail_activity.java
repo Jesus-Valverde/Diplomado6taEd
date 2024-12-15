@@ -62,10 +62,16 @@ public class Detail_activity extends AppCompatActivity {
         // METODO viewBinding
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            binding.txtViewNombre.setText(extras.getString("campoTextoNombre"));
-            binding.txtViewApellidos.setText(extras.getString("campoTextoApellidos"));
-            binding.txtViewCorreo.setText(extras.getString("campoTextoCorreo"));
-            binding.txtViewGrupo.setText(extras.getString("campoTextoGrupo"));
+            String textoRecibido1 = extras.getString("campoTextoNombre");
+            String textoRecibido2 = extras.getString("campoTextoApellidos");
+            String textoRecibido3 = extras.getString("campoTextoCorreo");
+            String textoRecibido4 = extras.getString("campoTextoGrupo");
+
+            // Asigna los datos a los TextViews dentro del CardView
+            binding.textViewNombre.setText(textoRecibido1);
+            binding.textViewApellidos.setText(textoRecibido2);
+            binding.textViewCorreo.setText(textoRecibido3);
+            binding.textViewGrupo.setText(textoRecibido4);
         }
     }
 }
